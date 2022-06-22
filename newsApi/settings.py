@@ -6,7 +6,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
@@ -35,7 +38,6 @@ INSTALLED_APPS = [
     'allauth.account',
 ]
 SITE_ID = 1
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -98,13 +100,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
     ]
 } 
+
+
+COUNTRIES_ONLY = ['AE', 'AR' ,'AT', 'AU', 'BE' ,'BG', 'BR' ,'CA' ,'CH' ,'CN', 'CO' ,'CU', 'CZ' ,'DE' ,'EG' ,'FR' ,'GB' ,'GR' ,'HK' ,'HU' ,'ID' ,'IE' ,'IL' ,'IN' ,'IT' ,'JP' ,'KR' ,'LT' ,'LV', 'MA', 'MX', 'MY' ,'NG' ,'NL', 'NO', 'NZ' ,'PH' ,'PL' ,'PT', 'RO', 'RS', 'RU' ,'SA' ,'SE', 'SG' ,'SI', 'SK', 'TH' ,'TR' ,'TW', 'UA', 'US', 'VE', 'ZA'] 
