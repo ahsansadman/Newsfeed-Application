@@ -11,7 +11,6 @@ class Source(models.Model):
 
     def __str__(self):
         return self.id
-    
 
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

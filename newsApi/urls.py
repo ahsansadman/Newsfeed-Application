@@ -1,5 +1,5 @@
-"""newsApi URL Configuration
 
+"""newsApi URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -20,4 +20,12 @@ from knox import views as knox_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('news/', views.news),
+    path('sources/', views.update_sources),
+    path('account/', views.UserAccountDetail.as_view()),
+    path('newsfeed/', views.UserNewsfeed.as_view()),
+    path('register/', views.RegisterAPI.as_view()),
+    path('login/', views.LoginAPI.as_view()),
+    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('logoutall/',knox_views.LogoutAllView.as_view(), name='logoutall'),
 ]
