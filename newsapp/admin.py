@@ -11,5 +11,4 @@ class AccountAdmin(admin.ModelAdmin):
    inlines = [SourceAdmin,]
 
 admin.site.register(Account)
-admin.site.register(Source)
-admin.site.register(Newsfeed)
+admin.site.register(Source) 
