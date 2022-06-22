@@ -100,8 +100,25 @@ def get_newsfeed(account):
         feed_info.save()
     except Newsfeed.DoesNotExist:
         feed_info = Newsfeed.objects.create(user = account.user,newsfeed=json.dumps(newsfeed))
-        feed_info.save() 
+        feed_info.save()
+        add_interval_task(account)   
     return newsfeed
+
+
+def add_interval_task(account):
+
+    schedule, created = IntervalSchedule.objects.get_or_create(
+     every=10,
+     period=IntervalSchedule.MINUTES,)
+
+    PeriodicTask.objects.create(
+         interval=schedule,                  
+         name='Update newsfeed for ' + account.user.username,         
+         task='newsapp.views.get_newsfeed',  
+         args= (account),
+         )
+    
+    return Response("Task added")
 
 
 def sendemail(account,content,keyword):

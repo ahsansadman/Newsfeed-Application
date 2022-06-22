@@ -1,4 +1,5 @@
 """newsApi URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -15,14 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from newsapp import views
+from knox import views as knox_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.login),
-    path('logout/', views.login),
-    path('news/', views.news),
-    path('sources/', views.update_sources),
-    path('account/', views.UserAccountDetail.as_view()),
-    path('newsfeed/', views.UserNewsfeed.as_view()),
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/registration/', include('rest_auth.registration.urls'))
 ]

@@ -8,20 +8,22 @@ class Source(models.Model):
     id = models.CharField(primary_key=True,max_length=50)
     class Meta:
         ordering = ["id"]
+
     def __str__(self):
         return self.id
     
+
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     country = CountryField(multiple=True)
-    keyword = TaggableManager()
+    tag = TaggableManager()
     source = models.ManyToManyField(Source)
     def __str__(self):
         return self.user.username
-
+    
 class Newsfeed(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     newsfeed = models.TextField()
-
+    
     def __str__(self):
-        return self.user.username 
+        return self.user.username
