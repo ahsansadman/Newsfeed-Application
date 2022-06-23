@@ -20,14 +20,15 @@ from knox import views as knox_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', views.news),
-    path('sources/', views.update_sources),
-    path('account/', views.UserAccountDetail.as_view()),
-    path('newsfeed/', views.UserNewsfeed.as_view()),
-    path('register/', views.RegisterAPI.as_view()),
-    path('login/', views.LoginAPI.as_view()),
-    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
-    path('logoutall/',knox_views.LogoutAllView.as_view(), name='logoutall'),
-    path('change-password/', views.ChangePasswordView.as_view(), name='change-password'),
+    path('api/news/', views.news),
+    path('api/sources/', views.update_sources),
+    path('api/account/', views.UserAccountDetail.as_view()),
+    path('api/newsfeed/', views.UserNewsfeed.as_view()),
+    path('api/register/', views.RegisterAPI.as_view()),
+    path('api/login/', views.LoginAPI.as_view()),
+    path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('api/logoutall/',knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('api/change-password/', views.ChangePasswordView.as_view(), name='change-password'),
+    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 
 ]

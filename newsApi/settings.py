@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django_celery_beat',
     'knox',
+    'django_rest_passwordreset',
 ]
 SITE_ID = 1
 
@@ -133,7 +134,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
