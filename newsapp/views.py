@@ -124,7 +124,7 @@ def add_interval_task(account):
 def sendemail(account,content,keyword):
     
     message = Mail(
-        from_email='ahsan.sadman@ferntechsolutions.com',
+        from_email='PUT SENDGRID USER EMAIL HERE',
         to_emails=account.user.email,
         subject= str(keyword) +' keyword appeared in your personalized news feed',
         html_content='<strong>'+ content +'</strong>')
