@@ -16,6 +16,7 @@ django-celery-beat==2.2.1
 django-countries==7.2.1
 django-rest-auth==0.9.5
 django-rest-knox==4.1.0
+django-rest-passwordreset==1.2.1
 django-taggit==2.0.0
 django-timezone-field==4.2.1
 djangorestframework==3.12.4
